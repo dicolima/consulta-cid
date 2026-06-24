@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consulta CID-10</title>
+    <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+    <main class="container">
+        <header class="hero">
+            <div>
+                <h1>Consulta CID-10</h1>
+                <p>Projeto simples para testar importação e busca de CID-10 em PostgreSQL.</p>
+            </div>
+            <div class="stats" id="statsBox">
+                Carregando estatísticas...
+            </div>
+        </header>
+
+        <section class="card">
+            <h2>Importar CSV</h2>
+            <p class="hint">
+                Selecione um CSV do DATASUS, como <strong>CID-10-CATEGORIAS.CSV</strong> ou <strong>CID-10-SUBCATEGORIAS.CSV</strong>.
+            </p>
+
+            <form id="importForm" class="form-grid">
+                <label>
+                    Tipo do arquivo
+                    <select name="type" id="type">
+                        <option value="subcategoria">Subcategoria</option>
+                        <option value="categoria">Categoria</option>
+                        <option value="capitulo">Capítulo</option>
+                        <option value="grupo">Grupo</option>
+                    </select>
+                </label>
+
+                <label>
+                    Arquivo CSV
+                    <input type="file" name="file" id="file" accept=".csv,text/csv" required />
+                </label>
+
+                <button type="submit">Importar</button>
+            </form>
+
+            <div id="importResult" class="result-message"></div>
+        </section>
+
+        <section class="card">
+            <h2>Pesquisar CID</h2>
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Digite código ou descrição. Ex: J06.9, diabetes, hipertensão..."
+                />
+                <button id="searchButton">Pesquisar</button>
+            </div>
+
+            <div id="resultInfo" class="hint"></div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Descrição</th>
+                            <th>Descrição curta</th>
+                            <th>Tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsBody">
+                        <tr>
+                            <td colspan="4" class="empty">Pesquise por um CID para começar.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="/app.js"></script>
+</body>
+</html>

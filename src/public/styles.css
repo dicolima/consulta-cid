@@ -1,0 +1,162 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f6fb;
+    color: #1f2937;
+}
+
+.container {
+    width: min(1100px, 94%);
+    margin: 32px auto;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    align-items: stretch;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    margin: 0 0 8px;
+    font-size: 36px;
+}
+
+.hero p {
+    margin: 0;
+    color: #526070;
+}
+
+.stats {
+    min-width: 260px;
+    background: #111827;
+    color: white;
+    border-radius: 16px;
+    padding: 18px;
+    line-height: 1.6;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.hint {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr 140px;
+    gap: 14px;
+    align-items: end;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input,
+select,
+button {
+    min-height: 42px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    padding: 0 12px;
+    font-size: 15px;
+}
+
+button {
+    border: none;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.search-box {
+    display: grid;
+    grid-template-columns: 1fr 140px;
+    gap: 12px;
+}
+
+.result-message {
+    margin-top: 14px;
+    font-weight: bold;
+}
+
+.result-message.success {
+    color: #15803d;
+}
+
+.result-message.error {
+    color: #b91c1c;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: #f8fafc;
+    color: #334155;
+}
+
+.code {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.empty {
+    text-align: center;
+    color: #64748b;
+    padding: 28px;
+}
+
+@media (max-width: 760px) {
+    .hero,
+    .form-grid,
+    .search-box {
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+
+    .stats {
+        min-width: unset;
+    }
+}
