@@ -2,6 +2,7 @@ const express = require("express");
 const multer = require("multer");
 const path = require("path");
 const CidController = require("../controllers/CidController");
+const SymptomController = require("../controllers/SymptomController");
 
 const router = express.Router();
 
@@ -15,5 +16,8 @@ const upload = multer({
 router.get("/cids", CidController.search);
 router.get("/cids/stats", CidController.stats);
 router.post("/cids/import", upload.single("file"), CidController.importCsv);
+
+router.get("/symptom-groups", SymptomController.groups);
+router.post("/cids/suggest-by-symptoms", SymptomController.suggestCids);
 
 module.exports = router;

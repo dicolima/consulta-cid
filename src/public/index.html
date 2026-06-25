@@ -11,12 +11,18 @@
         <header class="hero">
             <div>
                 <h1>Consulta CID-10</h1>
-                <p>Projeto simples para testar importação e busca de CID-10 em PostgreSQL.</p>
+                <p>Teste de importação, consulta e sugestão assistida de CID por sintomas.</p>
             </div>
             <div class="stats" id="statsBox">
                 Carregando estatísticas...
             </div>
         </header>
+
+        <section class="card warning-card">
+            <strong>Aviso importante:</strong>
+            As sugestões por sintomas são apenas apoio à codificação e à avaliação profissional.
+            Elas não representam diagnóstico definitivo e não substituem avaliação clínica.
+        </section>
 
         <section class="card">
             <h2>Importar CSV</h2>
@@ -75,6 +81,34 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="section-header">
+                <div>
+                    <h2>Sugestão assistida por sintomas</h2>
+                    <p class="hint">
+                        Clique nos sintomas apresentados pelo paciente. O sistema calcula uma pontuação e mostra CIDs relacionados que existem na base importada.
+                    </p>
+                </div>
+                <button id="clearSymptomsButton" class="secondary-button">Limpar seleção</button>
+            </div>
+
+            <div id="selectedSymptomsBox" class="selected-box empty-selection">
+                Nenhum sintoma selecionado.
+            </div>
+
+            <div id="symptomGroups" class="symptom-groups">
+                Carregando sintomas...
+            </div>
+
+            <div class="suggestion-panel">
+                <h3>Possíveis CIDs relacionados</h3>
+                <div id="suggestionInfo" class="hint">
+                    Selecione sintomas para gerar sugestões.
+                </div>
+                <div id="suggestionsBody" class="suggestions-list"></div>
             </div>
         </section>
     </main>
